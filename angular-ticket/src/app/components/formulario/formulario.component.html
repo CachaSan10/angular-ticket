@@ -1,1 +1,36 @@
-<p>formulario works!</p>
+<form action="">
+
+    <div class="mb-3">
+      <label for="iddni" class="form-label">Ingrese DNI</label>
+      <input type="text" class="form-control" id="iddni" [(ngModel)]="ticket.dni" name="dni" required>
+    </div>
+    
+    <div class="mb-3">
+      <label for="idprecioReal" class="form-label">Ingrese precio real</label>
+      <input type="number"  class="form-control" id="idprecioReal" [(ngModel)]="ticket.precioReal" name="precioReal" min="100"  max="1000" required>
+    </div>
+  
+    <div class="mb-3">
+      <label for="tipoEspectador" class="form-label">Seleccione tipo de Espectador</label>
+    <select (click)="mostrarPrecioCobrado()" name="tipoEspectador" class="form-select form-select-lg mb-3" aria-label="Default select example" [(ngModel)]="ticket.tipoEspectador"  required>
+      <option value="Local" selected>Local</option>
+      <option value="Extranjero"  >Extranjero</option>
+    </select>
+    </div>
+  
+   
+    <div class="mb-3" *ngIf="estado==true">
+      <label for="idprecioCobrado" class="form-label">Precio cobrado</label>
+      <input type="number" name="precioCobrado" class="form-control" id="idprecioCobrado"  value="{{calcularPrecioEspectador()}}" >
+    </div>
+      
+    
+        <button *ngIf="accion=='new'" type="button" class="btn btn-success" (click)="registrarTicket()">Registrar</button>
+       
+        <button *ngIf="accion=='update'" type="button" class="btn btn-warning" (click)="modificarTicket()">Modificar</button>
+  
+        <button type="button" class="btn btn-primary" (click)="volverMenuPricipal()">Volver</button>
+  
+  
+  
+  </form>

@@ -1,1 +1,61 @@
-<p>tabla works!</p>
+<div class="container">
+    <button type="button" class="btn btn-success" (click)="agregarTicket()">Agregar Ticket</button>
+  
+    <table class="table caption-top">
+        <caption>LISTA DE LAS VENTAS DE TICKET</caption>
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">DNI</th>
+            <th scope="col">PRECIO REAL</th>
+            <th scope="col">TIPO ESPECTADOR</th>
+            <th scope="col">FECHA DE COBRO</th>
+            <th scope="col">PRECIO COBRADO</th>
+            <th scope="col">ACCIONES</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let t of tickets">
+            <th scope="row">{{t.id}}</th>
+            <td>{{t.dni}}</td>
+            <td>{{t.precioReal | currency:'ARS':'symbol-narrow'}}</td>
+            <td>{{t.tipoEspectador}}</td>
+            <td>{{t.fechaCobro | date: 'dd/MM/yyyy'}}</td>
+            <td>{{t.precioCobrado | currency:'ARS':'symbol-narrow'}}</td>
+            <td>
+              <button type="button" class="btn btn-warning" (click)="modificarTicket(t)">Modificar</button>
+              <button type="button" class="btn btn-danger" (click)="eliminarTicket(t)">Eliminar</button>
+
+            </td>
+
+
+          </tr>
+        </tbody>
+      </table>
+
+      <button type="button" class="btn btn-info" (click)="resumenTicket()">RESUMEN</button>
+      <table class="table caption-top" *ngIf="resumen==true">
+        <caption>RESUMEN DE LAS VENTAS DE TICKET</caption>
+        <thead class="table-dark" >
+          <tr>
+            <th scope="col">TIPO ESPECTADOR</th>
+            <th scope="col">TOTAL GENERAL</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Local</td>
+            <td>{{sumarTicketsLocal()  | currency:'ARS':'symbol-narrow'}}</td>
+
+          </tr>
+          <tr>
+            <td>Extranjero</td>
+            <td>{{sumarTicketsExtranjero() | currency:'ARS':'symbol-narrow'}}</td>
+
+          </tr>
+        </tbody>
+      </table>
+
+</div>

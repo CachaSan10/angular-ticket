@@ -1,0 +1,42 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+angular-ticket/dist
+angular-ticket/tmp
+angular-ticket/out-tsc
+angular-ticket/bazel-out
+
+# Node
+angular-ticket/node_modules
+angular-ticket/npm-debug.log
+angular-ticket/yarn-error.log
+
+# IDEs and editors
+angular-ticket/.idea/
+angular-ticket/.project
+angular-ticket/.classpath
+angular-ticket/.c9/
+angular-ticket/*.launch
+angular-ticket/.settings/
+angular-ticket/*.sublime-workspace
+
+# Visual Studio Code
+angular-ticket/.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Miscellaneous
+angular-ticket/.angular/cache
+angular-ticket/.sass-cache/
+angular-ticket/connect.lock
+angular-ticket/coverage
+angular-ticket/libpeerconnection.log
+angular-ticket/testem.log
+angular-ticket/typings
+
+# System files
+angular-ticket/.DS_Store
+angular-ticket/Thumbs.db
